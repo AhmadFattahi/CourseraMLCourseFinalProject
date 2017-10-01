@@ -113,4 +113,13 @@ mean(rfError)
 ```
 
 ###Results: Out of Sample Error Rates
-After doing random sample cross validation for 5 times for tree and random forest the average accuracy rate for the tree was `r mean(treeError)*100`% and for random forest was **`r mean(rfError)*100`%**. Random forest's accuracy is very good and we decide to use that as our final model. To be exact we picked the one specific model that enjoyed the lowest error rate among the five. And given the out of sample average error rate above we expect the error rate on the real test set to be **under 3%** which is a great result. Due to teh feasibility of the computation and the accuracy we will not need to reduce or manipulate our covariates. 
+After doing random sample cross validation for 5 times for tree and random forest the average accuracy rate for the tree was `r mean(treeError)*100`% and for random forest was **`r mean(rfError)*100`%**. Random forest's accuracy is very good and we decide to use that as our final model. To be exact we picked the one specific model that enjoyed the lowest error rate among the five. And given the out of sample average error rate above we expect the error rate on the real test set to be **under 3%** which is a great result. Due to teh feasibility of the computation and the accuracy we will not need to reduce or manipulate our covariates.
+
+###Applying to Test Case
+The very last step is to apply the model to the test set for the outcome (and the quiz):
+
+```{r}
+#Predicting on real test cases
+testp <- predict(rf, testing)
+testp
+```

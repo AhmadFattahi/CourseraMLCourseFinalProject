@@ -234,6 +234,16 @@ treeError</code></pre>
 <h3>Results: Out of Sample Error Rates</h3>
 <p>After doing random sample cross validation for 5 times for tree and random forest the average accuracy rate for the tree was 50.5831974% and for random forest was <strong>2.7977162%</strong>. Random forest’s accuracy is very good and we decide to use that as our final model. To be exact we picked the one specific model that enjoyed the lowest error rate among the five. And given the out of sample average error rate above we expect the error rate on the real test set to be <strong>under 3%</strong> which is a great result. Due to teh feasibility of the computation and the accuracy we will not need to reduce or manipulate our covariates.</p>
 </div>
+<div id="applying-to-test-case" class="section level3">
+<h3>Applying to Test Case</h3>
+<p>The very last step is to apply the model to the test set for the outcome (and the quiz):</p>
+<pre class="r"><code>#Predicting on real test cases
+testp &lt;- predict(rf, testing)
+testp</code></pre>
+<pre><code>##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
+## Levels: A B C D E</code></pre>
+</div>
 </div>
 
 
